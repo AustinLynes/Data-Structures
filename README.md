@@ -13,8 +13,8 @@ Stretch Goals:
  * AVL Trees
 
 ## Tasks
- * Part I: Implement the Stack and Queue classes
- * Part II: Implement the Doubly Linked List class
+ * Part I: Implement the Stack and Queue classes [X]
+ * Part II: Implement the Doubly Linked List class [X]
  * Part III: Implement the Binary Search Tree class
  * Part IV: Implement traversal methods on Binary Search Trees
  

@@ -120,7 +120,6 @@ class DoublyLinkedList:
         # add it back because it is still there
         self.length += 1
 
-
     """Removes the input node from its current spot in the 
     List and inserts it as the new tail node of the List."""
 
@@ -191,6 +190,30 @@ class DoublyLinkedList:
             # then give back the highest found number
             return highest_found_value
 
+    def find_middle(self):
+        slow = self.head
+        fast = self.head
+
+        while fast != None and fast.next.next != None:
+            fast = fast.next.next
+            slow = slow.next
+
+        return slow.value
+
+    # head == tail
+    # tail == head
+    # no recursion no other data structures
+    def reverse_list(self):
+        # head is tail
+        _head = self.tail
+        # tail is head
+        _tail = self.head
+        # while the head is not equal to the tail
+        while _head != _tail:
+            # head points to the left
+            _head.next = _head.prev
+            # this 
+            _head.prev = _head.next
 
 # STACK == 0(n) because you have to look at everything
 # push pop peek to the top

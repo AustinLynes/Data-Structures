@@ -37,8 +37,7 @@ return elements in Last In First Out order.
 
 
 """
-from doubly_linked_list import DoublyLinkedList, ListNode
-
+from doubly_linked_list import DoublyLinkedList
 
 class Stack:
     def __init__(self):

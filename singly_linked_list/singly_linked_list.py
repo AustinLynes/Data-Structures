@@ -54,7 +54,7 @@ class Node:
     # get the next node in the list
     def get_next(self): # o(1)
         return self.next_node
-
+    # set this nodes next node to the new_next
     def set_next(self, new_next):
         self.next_node = new_next
 
@@ -161,5 +161,3 @@ class LinkedList:
 
             # return the highest value found
             return high
-
-
