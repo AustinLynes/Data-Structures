@@ -79,13 +79,19 @@ class BSTNode:
 
     # Call the function `fn` on the value of each node
     def for_each(self, fn):
+        # call the function on the current node
         fn(self.value)
 
-        if self.right:
-            return self.right.for_each(fn)
+        # check to see if there is a child greater
+        if self.right: 
+            # if there is.. call myself again but with the right child as the seld
+            self.right.for_each(fn)
 
+        # check to see if there is a child smaller
         if self.left:
-            return self.left.for_each(fn)            
+            # if there is.. call myself again but with the left child as the self
+            self.left.for_each(fn)            
+
                               
 
     # Part 2 ----------------------->
@@ -93,20 +99,25 @@ class BSTNode:
     # Print all the values in order from low to high
     # Hint:  Use a recursive, depth first traversal
     def in_order_print(self, node):
+        pass
         # find the lowest value
         
-        low = None
-        # function to get the lowest node in the tree 
-        def get_low(node):
-            # if the node thats passed in is not None
-            if node.value is not None:
-                # if the node has a left value then there is something less than it avalable
-                if node.left:
-                    self.get_low(node)
-            else:
-                return node
+        # low = None
+        # # function to get the lowest node in the tree 
+        # def get_low(node):
+        #     # if the node thats passed in is not None
+        #     if node.value is not None:
+        #         # if the node has a left value then there is something less than it avalable
+        #         if node.left:
+        #             get_low(node)
+        #     else:
+        #         return node
 
-        if self.value is not None:
+        # if self.value is not None:
+        #         low = get_low(node)
+        #         print(low)
+        #         # return self.value
+
 
         
 
