@@ -1,14 +1,18 @@
 """
-Binary search trees are a data structure that enforce an ordering over 
-the data they store. That ordering in turn makes it a lot more efficient 
-at searching for a particular piece of data in the tree. 
+Binary search trees are a data structure that enforce an ordering over
+the data they store. That ordering in turn makes it a lot more efficient
+at searching for a particular piece of data in the tree.
 
 This part of the project comprises two days:
 1. Implement the methods `insert`, `contains`, `get_max`, and `for_each`
    on the BSTNode class.
 2. Implement the `in_order_print`, `bft_print`, and `dft_print` methods
    on the BSTNode class.
+
+
 """
+
+
 class BSTNode:
     def __init__(self, value):
         self.value = value
@@ -17,27 +21,105 @@ class BSTNode:
 
     # Insert the given value into the tree
     def insert(self, value):
-        pass
+
+        if self.value == value:
+            if self.right is None:
+                self.right = BSTNode(value)
+                return False
+        # what if the tree is empty?
+        # what if the tree is NOT empty?
+
+        elif value > self.value:
+            # -->
+            if self.right is None:
+                self.right = BSTNode(value) 
+                return True
+            else:
+                return self.right.insert(value)
+        else:
+            #  <--
+            if self.left is None:
+                self.left = BSTNode(value)
+                return True
+            else:
+                return self.left.insert(value)
+
+        return False
 
     # Return True if the tree contains the value
     # False if it does not
     def contains(self, target):
-        pass
+        if self.value == target:
+            return True
+        
+        elif target > self.value:
+            # -->
+            if self.right is not None:
+                return self.right.contains(target) 
+            else:
+                return False
+        else:
+            if self.left is not None:
+                return self.left.contains(target) 
+            else:
+                return False
+    
 
     # Return the maximum value found in the tree
     def get_max(self):
-        pass
+
+        if self.value is not None:
+
+            if self.right is not None:
+                return self.right.get_max()
+            else:
+                return self.value
+            
+        return False
 
     # Call the function `fn` on the value of each node
     def for_each(self, fn):
-        pass
+        # call the function on the current node
+        fn(self.value)
 
-    # Part 2 -----------------------
+        # check to see if there is a child greater
+        if self.right: 
+            # if there is.. call myself again but with the right child as the seld
+            self.right.for_each(fn)
+
+        # check to see if there is a child smaller
+        if self.left:
+            # if there is.. call myself again but with the left child as the self
+            self.left.for_each(fn)            
+
+                              
+
+    # Part 2 ----------------------->
 
     # Print all the values in order from low to high
     # Hint:  Use a recursive, depth first traversal
     def in_order_print(self, node):
         pass
+        # find the lowest value
+        
+        # low = None
+        # # function to get the lowest node in the tree 
+        # def get_low(node):
+        #     # if the node thats passed in is not None
+        #     if node.value is not None:
+        #         # if the node has a left value then there is something less than it avalable
+        #         if node.left:
+        #             get_low(node)
+        #     else:
+        #         return node
+
+        # if self.value is not None:
+        #         low = get_low(node)
+        #         print(low)
+        #         # return self.value
+
+
+        
 
     # Print the value of every node, starting with the given node,
     # in an iterative breadth first traversal
@@ -49,7 +131,7 @@ class BSTNode:
     def dft_print(self, node):
         pass
 
-    # Stretch Goals -------------------------
+    # Stretch Goals ------------------------->
     # Note: Research may be required
 
     # Print Pre-order recursive DFT
